@@ -1,0 +1,4 @@
+scheduler_id: "12D3KooWQER7HEpwsvqSzqzaiV36d3Bn6DZrnwEunnzS76pgZkMU"
+send_metrics: false
+available_datasets:
+  bsc-mainnet: "czM6Ly9ic2MtbWFpbm5ldC0x"

@@ -1,0 +1,15 @@
+[store]
+[store.primary]
+connection = "postgres://graph-node:let-me-in@postgres:5432/graph-node"
+pool_size = 5
+[chains]
+ingestor = "block_ingestor_node"
+[chains.bsc]
+shard = "primary"
+provider = [
+    { label = "bsc", details = { type = "firehose", url = "http://firehose:13042", features = ["filters"] } }
+]
+[deployment]
+[[deployment.rule]]
+shard = "primary"
+indexers = ["default"]
