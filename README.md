@@ -148,7 +148,7 @@ To make the subgraph ingest its data from the [decentralized and permissionless 
  * `config.toml` - config for the Graph node
  * `docker-compose.yml` - definition of all the involved containers, including the one running [`subsquid-firehose`](https://github.com/subsquid/firehose-grpc/)
 
-Once the subgraph is up and running, it will expose its GraphQL API (with a GraphiQL playground) at [http://localhost:8000/subgraphs/name/simple-busd-subgraph/](http://localhost:8000/subgraphs/name/simple-busd-subgraph/). Check the status of the subgraph by running the following query:
+Once the subgraph is up and running, it will expose its GraphQL API (with a GraphiQL playground) at [http://localhost:8000/subgraphs/name/simple-busd-subgraph/](http://localhost:8000/subgraphs/name/simple-busd-subgraph/). Check its status by running the following query:
 ```graphql
 {
   _meta {
