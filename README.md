@@ -12,9 +12,9 @@
 
 [Subsquid Network FAQ](https://docs.subsquid.io/subsquid-network/public)
 
-# Deploy a simple Binance subgraph
+# Deploy a simple BUSD subgraph
 
-This is a quest to run a simple subgraph using the data from the permissionless Subsquid Network. The subgraph used was generated with `graph init`; it indexes USDT transfers on Binance mainnet.
+This is a quest to run a simple subgraph using the data from the permissionless Subsquid Network. The subgraph used was generated with `graph init`; it indexes BUSD transfers on Binance mainnet.
 
 You can find more info on using Subsquid Network to run subgraphs at the [Subsquid Firehose](https://docs.subsquid.io/subgraphs-support) docs page.
 
