@@ -106,6 +106,8 @@ Re-open the terminal to apply the changes.
 4. Create and deploy the subgraph:
    ```bash
    npm run create-local
+   ```
+   ```bash
    npm run deploy-local
    ```
    To check if the subgraph is successfully deployed, check the output of
