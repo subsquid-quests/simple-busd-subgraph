@@ -83,13 +83,16 @@ Re-open the terminal to apply the changes.
 
 ### II. Run the subgraph
 
-1. Download the subgraph and enter its folder
+1. Download the subgraph, enter its folder and install the dependencies
 
    ```bash
    git clone https://github.com/subsquid-quests/simple-busd-subgraph
    ```
    ```bash
    cd simple-busd-subgraph
+   ```
+   ```bash
+   yarn install
    ```
 
 2. Press "Get Key" button in the quest card to obtain the `busdSubgraph.key` key file. Save it to the `./query-gateway/keys` subfolder of the squid folder. The file will be used by the query gateway container.
