@@ -103,7 +103,12 @@ Re-open the terminal to apply the changes.
    ```
    Wait for about a couple of minutes before proceeding to the next step.
 
-4. Create and deploy the subgraph:
+4. Randomize the starting block of the subgraph by running:
+   ```bash
+   npm run randomize
+   ```
+
+5. Create and deploy the subgraph:
    ```bash
    npm run create-local
    ```
@@ -121,7 +126,7 @@ Re-open the terminal to apply the changes.
    ```
    Note that it might take a few minutes before the subgraph gets to that stage.
 
-5. Leave the syncing process to run overnight. Once done, shut down the containers with
+6. Leave the syncing process to run overnight. Once done, shut down the containers with
    ```bash
    docker compose down
    ```
