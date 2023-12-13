@@ -105,15 +105,15 @@ Re-open the terminal to apply the changes.
 
 4. Randomize the starting block of the subgraph by running:
    ```bash
-   npm run randomize
+   yarn run randomize
    ```
 
 5. Create and deploy the subgraph:
    ```bash
-   npm run create-local
+   yarn run create-local
    ```
    ```bash
-   npm run deploy-local
+   yarn run deploy-local
    ```
    To check if the subgraph is successfully deployed, check the output of
    ```bash
