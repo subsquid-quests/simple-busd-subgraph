@@ -42,6 +42,9 @@ services:
     command: [ "--archive", "http://query-gateway:8002/network/bsc-mainnet",
       "--finality-confirmation", "5"
     ]
+    depends_on:
+      query-gateway:
+        condition: service_healthy
     environment:
       RUST_LOG: "firehose_grpc=info"
   query-gateway:
