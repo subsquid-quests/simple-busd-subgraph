@@ -126,6 +126,18 @@ Re-open the terminal to apply the changes.
    ```
    Note that it might take a few minutes before the subgraph gets to that stage.
 
+   If you get an error like this:
+   ```
+   ✖ Failed to deploy to Graph node http://localhost:8020/: network not supported by registrar: no network bsc found on chain ethereum
+   ```
+   simply restart the containers with
+   ```bash
+   docker compose down
+   ```
+   ```bash
+   docker compose up -d
+   ```
+
 6. Leave the syncing process to run overnight. Once done, shut down the containers with
    ```bash
    docker compose down
