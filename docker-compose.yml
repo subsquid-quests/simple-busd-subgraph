@@ -45,7 +45,7 @@ services:
     environment:
       RUST_LOG: "firehose_grpc=info"
   query-gateway:
-    image: subsquid/query-gateway:0.1.7
+    image: subsquid/query-gateway:0.1.8
     environment:
       BOOTSTRAP: "true"
       HTTP_LISTEN_ADDR: 0.0.0.0:8002
