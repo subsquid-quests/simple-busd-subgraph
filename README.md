@@ -137,7 +137,7 @@ Re-open the terminal to apply the changes.
    ```bash
    docker compose up -d
    ```
-   and run `yarn run deploy-local` again.
+   and run `yarn run create-local` followed by `yarn run deploy-local` again.
 
 6. Leave the syncing process to run overnight. Once done, shut down the containers with
    ```bash
