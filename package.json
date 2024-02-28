@@ -9,7 +9,8 @@
     "remove-local": "graph remove --node http://localhost:8020/ simple-busd-subgraph",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 simple-busd-subgraph",
     "test": "graph test",
-    "randomize": "node -e \"m=require('mustache'); fs.writeFileSync('subgraph.yaml', m.render(fs.readFileSync('subgraph.template.yaml').toString(), {startBlock: Math.floor(Math.sqrt(Math.random())*32_000_000)+176_416}))\""
+    "randomize": "node -e \"m=require('mustache'); fs.writeFileSync('subgraph.yaml', m.render(fs.readFileSync('subgraph.template.yaml').toString(), {startBlock: Math.floor(Math.sqrt(Math.random())*32_000_000)+176_416}))\"",
+    "get-peer-id": "node scripts/getPeerIdFromGatewayKey.js query-gateway/keys/busdSubgraphPhaseTwo.key"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.61.0",
@@ -17,6 +18,8 @@
     "mustache": "^4.2.0"
   },
   "devDependencies": {
-    "matchstick-as": "0.5.0"
+    "libp2p": "^1.2.3",
+    "matchstick-as": "0.5.0",
+    "peer-id": "^0.16.0"
   }
 }

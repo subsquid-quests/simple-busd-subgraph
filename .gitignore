@@ -1,3 +1,5 @@
 node_modules
 build
 subgraph.yaml
+query-gateway/keys/*.key
+query-gateway/allocations.db

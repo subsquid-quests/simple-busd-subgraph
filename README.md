@@ -12,13 +12,13 @@
 
 [Subsquid Network FAQ](https://docs.subsquid.io/subsquid-network/public)
 
-# Deploy a simple BUSD subgraph
+# Run a simple BUSD subgraph
 
-This is a quest to run a simple subgraph using the data from the permissionless Subsquid Network. The subgraph used was generated with `graph init`; it indexes BUSD transfers on Binance mainnet.
+This is an updated quest to run a simple subgraph using the data from the permissionless Phase 2 Subsquid Network. The subgraph used was generated with `graph init`; it indexes BUSD transfers on Binance mainnet.
 
 You can find more info on using Subsquid Network to run subgraphs at the [Subsquid Firehose](https://docs.subsquid.io/subgraphs-support) docs page.
 
-Here is how to run the squid:
+Here is how to run it:
 
 ### I. Install dependencies: Node.js, Docker, Git.
 
@@ -95,20 +95,49 @@ Re-open the terminal to apply the changes.
    yarn install
    ```
 
-2. Press "Get Key" button in the quest card to obtain the `busdSubgraph.key` key file. Save it to the `./query-gateway/keys` subfolder of the squid folder. The file will be used by the query gateway container.
+> [!IMPORTANT]
+> If you're on Windows, the terminal opens in `C:\Windows\system32` by default. Do not download your squid there, navigate someplace else.
 
-3. Start all the services required to run the subgraph as Docker containers:
+2. Press "Get Key" button in the quest card to obtain the `busdSubgraphPhaseTwo.key` key file. Save it to the `./query-gateway/keys` subfolder of the squid folder. The file will be used to identify your local query gateway when locking tSQD to allocate bandwidth and as it operates.
+
+3. Get the peer ID of your future gateway by running:
+   ```bash
+   yarn run get-peer-id
+   ```
+
+4. Register your future gateway using [this page](https://app.subsquid.io/profile/gateways/add?testnet).
+   - Use the peer ID you obtained in the previous step.
+   - Leave the "Publicly available" switch disabled.
+
+
+5. Lock 10 tSQD by selecting your gateway on [this page](https://app.subsquid.io/profile/gateways?testnet), clicking "Get CU" and submitting the form. Once done, you will begin getting computation units (*CUs*) once every epoch (~15 minutes).
+
+   The "Lock blocks duration" field lets you tune the length of time during which you'll be able to query the network, measured in blocks of Arbitrum Sepolia's L1 (that is, Ethereum Sepolia). The minumum is five hours, but you can opt to lock for longer if you intend to work on the quest over multiple days.
+
+   | Time              | Blocks |
+   |:-----------------:|:------:|
+   | 5 hours (minimum) | 1500   |
+   | 24 hours          | 7200   |
+   | 72 hours          | 21600  |
+
+   Be aware that you'll need to unlock your tokens manually after the end of this period. The tokens you get back will be used in subsequent quests.
+
+   If the locking period expires before you finish your work, simply unlock your tokens, then lock them again.
+
+6. Wait for about 15 minutes. This is the time it takes for Subsquid Network to enter a new epoch, at the beginning of which CUs will be allocated towards your gateway.
+
+7. Start the gateway and the rest of the services required to run the subgraph as Docker containers:
    ```bash
    docker compose up -d
    ```
    Wait for about a couple of minutes before proceeding to the next step.
 
-4. Randomize the starting block of the subgraph by running:
+8. Randomize the starting block of the subgraph by running:
    ```bash
    yarn run randomize
    ```
 
-5. Create and deploy the subgraph:
+9. Create and deploy the subgraph:
    ```bash
    yarn run create-local
    ```
@@ -139,7 +168,7 @@ Re-open the terminal to apply the changes.
    ```
    and run `yarn run create-local` followed by `yarn run deploy-local` again.
 
-6. Leave the syncing process to run overnight. Once done, shut down the containers with
+10. Leave the syncing process to run overnight. Once done, shut down the containers with
    ```bash
    docker compose down
    ```
@@ -148,7 +177,7 @@ Re-open the terminal to apply the changes.
 
 | Category         | Skill Level                          | Time required (minutes) | Max Participants | Reward                              | Status |
 | ---------------- | ------------------------------------ | ----------------------- | ---------------- | ----------------------------------- | ------ |
-| Squid Deployment | $\textcolor{green}{\textsf{Simple}}$ | ~720                    | -                | $\textcolor{red}{\textsf{750tSQD}}$ | open   |
+| Squid Deployment | $\textcolor{green}{\textsf{Simple}}$ | ~720                    | -                | $\textcolor{red}{\textsf{75tSQD}}$  | open   |
 
 # Acceptance critera
 
