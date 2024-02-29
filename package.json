@@ -1,19 +1,25 @@
 {
-  "name": "squid-evm-template",
-  "private": true,
+  "name": "simple-busd-subgraph",
+  "license": "UNLICENSED",
   "scripts": {
-    "build": "rm -rf lib && tsc"
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ simple-busd-subgraph",
+    "create-local": "graph create --node http://localhost:8020/ simple-busd-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ simple-busd-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 simple-busd-subgraph",
+    "test": "graph test",
+    "randomize": "node -e \"m=require('mustache'); fs.writeFileSync('subgraph.yaml', m.render(fs.readFileSync('subgraph.template.yaml').toString(), {startBlock: Math.floor(Math.sqrt(Math.random())*32_000_000)+176_416}))\"",
+    "get-peer-id": "node scripts/getPeerIdFromGatewayKey.js query-gateway/keys/busdSubgraphPhaseTwo.key"
   },
   "dependencies": {
-    "@belopash/mock-store": "^0.0.0",
-    "@subsquid/evm-processor": "^1.13.0",
-    "dotenv": "^16.3.1",
-    "@inquirer/input": "^1.2.14",
-    "@inquirer/password": "^1.1.14",
-    "@types/node": "^20.11.5",
-    "ethereumjs-wallet": "^1.0.2",
-    "libp2p": "0.32.5",
-    "peer-id": "^0.16.0",
-    "typescript": "~5.3.3"
+    "@graphprotocol/graph-cli": "0.61.0",
+    "@graphprotocol/graph-ts": "0.30.0",
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "libp2p": "^1.2.3",
+    "matchstick-as": "0.5.0",
+    "peer-id": "^0.16.0"
   }
 }
